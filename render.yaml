@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: hianime-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ORIGIN
+        value: "*"
+      - key: BASE_URL
+        fromService:
+          type: web
+          name: hianime-api
+          property: host
+      - key: RATE_LIMIT_WINDOW_MS
+        value: "60000"
+      - key: RATE_LIMIT_LIMIT
+        value: "100"
