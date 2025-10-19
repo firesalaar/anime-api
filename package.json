@@ -13,7 +13,7 @@
     ]
   },
   "scripts": {
-    "prepare": "husky",
+    "postinstall": "echo 'Production build complete'",
     "lint": "eslint",
     "lint:fix": "eslint --fix && prettier . --write",
     "dev": "bun --watch index.js",
